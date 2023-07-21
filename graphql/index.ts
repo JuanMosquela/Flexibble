@@ -1,11 +1,11 @@
 export const getUserQuery = `
   query getUser($email: String!){
-    user(by { email: $email }){
+    user(by: { email: $email }){
         id
         name
         email
         avatarUrl
-        dscription
+        description
         githubUrl
         linkedInUrl
     }
