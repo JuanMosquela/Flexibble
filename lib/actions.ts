@@ -3,6 +3,7 @@ import {
   createUserMutation,
   deleteProjectMutation,
   getProjectByIdQuery,
+  getProjectsOfUserQuery,
   getUserQuery,
   projectsQuery,
   updateProjectMutation,
@@ -61,7 +62,9 @@ export const fetchAllProjects = (
 ) => {
   client.setHeader("x-api-key", apiKey);
 
-  category = "Full-Stack";
+  if (!category) {
+    category = "Full-Stack";
+  }
 
   return makeGraphQLRequest(projectsQuery, { category, endcursor });
 };
@@ -112,6 +115,8 @@ export const updateProject = async (
     }
   }
 
+  console.log(updatedForm);
+
   client.setHeader("Authorization", `Bearer ${token}`);
 
   const variables = {
@@ -134,6 +139,11 @@ export const getProjectDetails = (id: string) => {
 
 export const getUser = (email: string) => {
   return makeGraphQLRequest(getUserQuery, { email });
+};
+
+export const getUserProjects = (id: string, last?: number) => {
+  client.setHeader("x-api-key", apiKey);
+  return makeGraphQLRequest(getProjectsOfUserQuery, { id, last });
 };
 
 export const createUser = (name: string, email: string, avatarUrl: string) => {

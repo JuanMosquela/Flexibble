@@ -30,7 +30,8 @@ const Project = g
     createdBy: g.relation(() => User),
   })
   .auth((rules) => {
-    rules.public().read(), rules.private().create().delete().update();
+    rules.public().read();
+    rules.private().create().delete().update();
   });
 
 const jwt = auth.JWT({
@@ -44,12 +45,4 @@ export default config({
     providers: [jwt],
     rules: (rules) => rules.private(),
   },
-  // Integrate Auth
-  // https://grafbase.com/docs/auth
-  // auth: {
-  //   providers: [authProvider],
-  //   rules: (rules) => {
-  //     rules.private()
-  //   }
-  // }
 });
