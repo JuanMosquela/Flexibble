@@ -61,6 +61,8 @@ export const fetchAllProjects = (
 ) => {
   client.setHeader("x-api-key", apiKey);
 
+  category = "Full-Stack";
+
   return makeGraphQLRequest(projectsQuery, { category, endcursor });
 };
 

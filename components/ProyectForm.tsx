@@ -32,12 +32,13 @@ const ProyectForm = ({ type, session }: Props) => {
 
     setIsSubmitting(true);
 
+    console.log(form);
+
     const { token } = await fetchToken();
 
     try {
       if (type === "create") {
         await createNewProject(form, session?.user?.id, token);
-
         router.push("/");
       }
     } catch (error) {

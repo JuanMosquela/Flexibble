@@ -5,6 +5,7 @@ export const createProjectMutation = `
 				id
 				title
 				description
+        category
 				createdBy {
 					email
 					name
