@@ -5,6 +5,7 @@ import ProfileMenu from "./ProfileMenu";
 import Modal from "./Modal";
 import ProjectForm from "./ProyectForm";
 import FormField from "./FormField";
+import CustomMenu from "./CustomMenu";
 
 export {
   Navbar,
@@ -14,4 +15,5 @@ export {
   Modal,
   ProjectForm,
   FormField,
+  CustomMenu,
 };
