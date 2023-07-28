@@ -4,6 +4,8 @@ import { getCurrentUser } from "@/lib/session";
 import { ProjectInterface } from "@/types";
 import { redirect } from "next/navigation";
 
+export const revalidate = 0;
+
 const EditProject = async ({ params: { id } }: { params: { id: string } }) => {
   const session = await getCurrentUser();
 

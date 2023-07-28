@@ -2,6 +2,8 @@ import { Modal, ProjectForm } from "@/components";
 import { getCurrentUser } from "@/lib/session";
 import { redirect } from "next/navigation";
 
+export const revalidate = 0
+
 const CreateProject = async () => {
   const session = await getCurrentUser();
 
