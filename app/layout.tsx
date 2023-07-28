@@ -7,6 +7,8 @@ export const metadata = {
   description: "Shoeccase and discover remarcable developer proyectjs",
 };
 
+export const revalidate = 0
+
 export default function RootLayout({
   children,
 }: {
