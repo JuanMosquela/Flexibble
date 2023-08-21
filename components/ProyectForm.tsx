@@ -33,8 +33,6 @@ const ProyectForm = ({ type, session, project }: Props) => {
 
     setIsSubmitting(true);
 
-    console.log(form);
-
     const { token } = await fetchToken();
 
     try {
@@ -51,6 +49,7 @@ const ProyectForm = ({ type, session, project }: Props) => {
     } catch (error) {
       console.log(error);
     } finally {
+      router.refresh();
       setIsSubmitting(false);
     }
   };

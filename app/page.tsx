@@ -23,7 +23,7 @@ type Props = {
   searchParams: SearchParams;
 };
 
-export const revalidate = 0
+export const revalidate = 0;
 
 const Home = async ({ searchParams: { category } }: Props) => {
   const data = (await fetchAllProjects(category)) as ProjectSearch;
@@ -39,7 +39,6 @@ const Home = async ({ searchParams: { category } }: Props) => {
     );
   }
 
-  console.log(data);
   return (
     <section className="flex-start flex-col paddings mb-16">
       <Categories />
@@ -56,7 +55,6 @@ const Home = async ({ searchParams: { category } }: Props) => {
           />
         ))}
       </section>
-      
     </section>
   );
 };
