@@ -23,7 +23,8 @@ type Props = {
   searchParams: SearchParams;
 };
 
-export const revalidate = 0;
+// export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 const Home = async ({ searchParams: { category } }: Props) => {
   const data = (await fetchAllProjects(category)) as ProjectSearch;
