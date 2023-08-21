@@ -5,11 +5,9 @@ import { redirect, useRouter } from "next/navigation";
 export const revalidate = 0;
 
 const CreateProject = async () => {
-  const router = useRouter();
   const session = await getCurrentUser();
 
   if (!session?.user) {
-    router.refresh();
     redirect("/");
   }
 
