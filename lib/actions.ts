@@ -10,6 +10,7 @@ import {
 } from "@/graphql";
 import { ProjectForm } from "@/types";
 import { GraphQLClient } from "graphql-request";
+import { revalidatePath } from "next/cache";
 
 const isProduction = process.env.NODE_ENV === "production";
 const apiUrl = isProduction
@@ -89,6 +90,8 @@ export const createNewProject = async (
       },
     };
 
+    revalidatePath("/");
+
     return makeGraphQLRequest(createProjectMutation, variables);
   }
 };
@@ -115,7 +118,7 @@ export const updateProject = async (
     }
   }
 
-  console.log(updatedForm);
+  revalidatePath("/");
 
   client.setHeader("Authorization", `Bearer ${token}`);
 
@@ -128,6 +131,7 @@ export const updateProject = async (
 };
 
 export const deleteProject = (id: string, token: string) => {
+  revalidatePath("/");
   client.setHeader("Authorization", `Bearer ${token}`);
   return makeGraphQLRequest(deleteProjectMutation, { id });
 };
